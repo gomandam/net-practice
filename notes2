@@ -6,7 +6,7 @@
 #    By: gomandam <gomandam@student.42madrid.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/13 22:38:29 by gomandam          #+#    #+#              #
-#    Updated: 2026/03/13 22:39:57 by gomandam         ###   ########.fr        #
+#    Updated: 2026/03/14 11:24:29 by gomandam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,6 @@ An IP address (in the case of v4) is built upon 32-bits, expressed in four numbe
 What is Subnet Mask?
 
 A subnet mask is a 32-bit number created by setting host bits to all 0s and setting network bits to all 1s. In this way, the subnet mask separates the IP address into the network and host addresses.
-
 The “255” address is always assigned to a broadcast address, and the “0” address is always assigned to a network address. Neither can be assigned to hosts, as they are reserved for these special purposes.
 
 
