@@ -6,7 +6,7 @@
 #    By: gomandam <gomandam@student.42madrid.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/13 22:38:29 by gomandam          #+#    #+#              #
-#    Updated: 2026/03/14 11:28:08 by gomandam         ###   ########.fr        #
+#    Updated: 2026/03/17 22:40:40 by gomandam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,4 +22,8 @@ A subnet mask is a 32-bit number created by setting host bits to all 0s and sett
 The “255” address is always assigned to a broadcast address, and the “0” address is always assigned to a network address. Neither can be assigned to hosts, as they are reserved for these special purposes.
 
 
- 
+References:
+
+1. https://toufa7.medium.com/new-subnetting-34fadfb86c70
+2. https://medium.com/@imyzf/netpractice-2d2b39b6cf0a
+3. https://toufa7.medium.com/netpractice-guidelines-6341b8309f38 
