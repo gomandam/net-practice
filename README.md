@@ -28,3 +28,12 @@ An IP address stands for Internet Protocol Address, which is a set of rules for 
 TCP/IP stands for Transmission Control Protocol/Internet Protocol, which is a set of rules that guide and allow computers to communicate on a network such as the internet.
   
 ______________________________________________________________________
+
+**The four layers of the TCP/IP model:**
+  
+**Datalink Layer:** also called the physical layer, handles the physical parts of sending and recieving data using the Ethernet, or WiFi, etc…  
+**Internet Layer:** also called the network layer, and it controls the movement of the packets around the internet.  
+**Transport Layer:** provides a reliable data connection between two devices, it divides the data into packets, knows the packets that are recieved from the other device, and it makes sure that the other device knows the packets it recieves.  
+**Application Layer:** group of the applications that requires a network communication, which is what the user typically interacts with, such as emails, and messaging, because the lower layer handles the details of communication, and there’s no need for the applications to concern themselves with it.  
+
+______________________________________________________________________
