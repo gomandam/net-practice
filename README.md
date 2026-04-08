@@ -1,39 +1,87 @@
-# net-practice
-Fundamentals, and general exercises to discover networking.
+*This project has been created as part of the 42 curriculum by* **ɢᴏᴍᴀɴᴅᴀᴍ**.
 
-______________________________________________________________________
-  
-**NetPractice** is mostly about IPv4 addressing + routing decisions:
+## Description
 
-  1. Subnet masks and what they imply
-  2. Network/broadcast/host ranges
-  3. Default gateway meaning
-  4. When hosts can talk directly vs must route
-  5. How routers choose where to forward packets (longest prefix match)?
+**Net Practice** teaches TCP/IP addressing fundamentals through hands-on exercises. The objective is to understand how IP addressing, subnet masks, and routing decisions work in real networks.
 
-______________________________________________________________________
-  
-**What is an IP?**
+Key concepts covered:
+- Subnet masks and network segmentation
+- Network/broadcast/host address ranges
+- Default gateway routing behavior
+- Direct communication vs. routed communication
 
-An IP address stands for Internet Protocol Address, which is a set of rules for communication over the internet, such as sending emails, streaming videos, or connecting to a website, etc…, an IP address identifies a network or a device on the internet. 
-  
-**What is the difference between the IPv4 and the IPv6?**
+### Core Networking Topics
 
-**IPv4:** Deployed in the 1981, works with a 32-bits address, and has over 4.3 billion addresses (which is a small amount of addresses compared to IPv6), so IP addresses must be reused and masked, and it uses Numeric Dot-Decimal Notation (ex: 192.108.42.64), and you have to configure it manually.    
-**Ipv6:** Deployed in the 1998, works with a 128-bits address, and has over 340 undecillion addresses (which is 340 trillion, trillion, trillion, trillion [36 zeros]), so every device can have it's unique IP address, and it uses Alphanumeric Hexadecimal Notation (ex: 2002:0de6:0001:0042:0100:8c2e:0370:7234), and it supports auto-configuration.
-  
-  
-**What is TCP/IP?**
+- **IPv4 Addressing:** 32-bit addresses with CIDR notation and subnet masking
+- **Routing:** Packets traverse networks and routers make forwarding decisions
+- **Network Design:** Subnetting, address allocation, and host connectivity
 
-TCP/IP stands for Transmission Control Protocol/Internet Protocol, which is a set of rules that guide and allow computers to communicate on a network such as the internet.
-  
-______________________________________________________________________
+---
 
-**The four layers of the TCP/IP model:**
-  
-**Datalink Layer:** also called the physical layer, handles the physical parts of sending and recieving data using the Ethernet, or WiFi, etc…  
-**Internet Layer:** also called the network layer, and it controls the movement of the packets around the internet.  
-**Transport Layer:** provides a reliable data connection between two devices, it divides the data into packets, knows the packets that are recieved from the other device, and it makes sure that the other device knows the packets it recieves.  
-**Application Layer:** group of the applications that requires a network communication, which is what the user typically interacts with, such as emails, and messaging, because the lower layer handles the details of communication, and there’s no need for the applications to concern themselves with it.  
+## Instructions
 
-______________________________________________________________________
+### Setup
+
+1. **Acquire** the NetPractice files from the 42-intranet
+2. **Extract** into a folder, and apply **chmod +x** to **run.sh**
+3. **Run** the training interface: **./run.sh** or similarly,
+   ```bash
+   chmod +x ./run.sh
+   ```
+   
+### Completing Levels
+
+- Work through **10 configuration levels**
+- However, the evaluation starts at **level 06** onwards
+- Each level tests your understanding of subnetting and routing
+- Export configurations for each completed level
+
+### Submission Requirements
+
+1. **Export all 10 configuration files** (one per level)
+2. **Place exported files at the repository root**
+3. File format: `.json`
+4. Submission structure:
+   ```
+   net-practice/
+   ├── README.md
+   ├── config_level_1.json
+   ├── config_level_2.json
+   ├── ...
+   └── config_level_10.json
+   ```
+
+---
+
+## Resources
+
+### Core Networking Documentation
+
+- [RFC 791 - Internet Protocol](https://tools.ietf.org/html/rfc791) — IPv4 specification
+- [RFC 4632 - Classless Inter-domain Routing](https://tools.ietf.org/html/rfc4632) — CIDR notation
+- [TCP/IP Model Layers](https://en.wikipedia.org/wiki/Internet_protocol_suite#Layers) — OSI vs TCP/IP comparison
+- [Network Chuck](https://youtu.be/5WfiTHiU4x8?si=5YghrnNk1Toq6zxk) — Subnetting Playlist
+
+### Key Concepts
+
+| Concept | Definition |
+|---------|-----------|
+| **Subnet Mask** | Defines network/host portions of an IP address |
+| **Default Gateway** | Router interface for packets destined outside local network |
+| **CIDR Notation** | `/24` notation indicating number of network bits |
+| **Broadcast Address** | Last address in subnet; reaches all hosts on network |
+| **Network Address** | First address in subnet; identifies the network |
+
+### AI Usage Disclosure
+
+- **README structure & formatting:** AI assisted in organizing sections to meet 42 requirements
+- **Explanation clarity:** use of AI for asking niche questions regarding network concepts
+
+---
+
+## Technical Notes
+
+- This project is **interactive training only** — no compilation required
+- Web interface runs locally, no internet connection needed after setup
+- Configuration exports validate CIDR math and routing logic automatically
+
