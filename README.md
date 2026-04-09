@@ -67,14 +67,16 @@ Key concepts covered:
 | Concept | Definition |
 |---------|-----------|
 | **Subnet Mask** | Defines network/host portions of an IP address |
-| **Default Gateway** | Router interface for packets destined outside local network |
-| **CIDR Notation** | `/24` notation indicating number of network bits |
+| **IP Address** | Unique label assigned to a device. Identifies host & network location. |
+| **Network ID** | First address in a subnet; identifies the subnet's network |
+| **Default Gateway** | (Network ID) Router interface for packets destined outside local network |
+| **Usable Hosts** | Range of usable hosts: Default Gateway +1 up to Broadcast Address -1 |
 | **Broadcast Address** | Last address in subnet; reaches all hosts on network |
-| **Network Address** | First address in subnet; identifies the network |
-
+| **CIDR Notation** | `e.g. "/24"` notation indicating number of network bits |
+  
 ### AI Usage Disclosure
 
-- **README structure & formatting:** AI assisted in organizing sections to meet 42 requirements
+- **README structure & formatting:** AI assisted in formatting sections to meet 42 requirements
 - **Explanation clarity:** use of AI for asking niche questions regarding network concepts
 
 ---
@@ -95,17 +97,18 @@ Usable hosts are calculated with:
 ```text
 2^n - 2
 ```
-Where `n` is the number of host bits remaining. Reserved 2 hosts for both network and broadcast addresses.
-
-| CIDR | /30-/CIDR | n-Subnets | Block Size | Last Octet | Host Bits | Usable Hosts |
-|------|------|------|------|------|------|------|
-| /24 | 6 | 2<sup>6</sup> = 64 | 256 / 1 = 256 | 00000000 | 8 | 2<sup>8</sup>-2 = 254 |
-| /25 | 5 | 2<sup>5</sup> = 32 | 256 / 2 = 128 | 10000000 | 7 | 2<sup>7</sup>-2 = 126 |
-| /26 | 4 | 2<sup>4</sup> = 16 | 256 / 4 = 64 | 11000000 | 6 | 2<sup>6</sup>-2 = 62 |
-| /27 | 3 | 2<sup>3</sup> = 8 | 256 / 8 = 32 | 11100000 | 5 | 2<sup>5</sup>-2 = 30 |
-| /28 | 2 | 2<sup>2</sup> = 4 | 256 / 16 = 16 | 11110000 | 4 | 2<sup>4</sup>-2 = 14 |
-| /29 | 1 | 2<sup>1</sup> = 2 | 256 / 32 = 8 | 11111000 | 3 | 2<sup>3</sup>-2 = 6 |
-| /30 | 0 | 2<sup>0</sup> = 1 | 256 / 64 = 4 | 11111100 | 2 | 2<sup>2</sup>-2 = 2 |
+Where `n` is the number of host bits remaining. Reserved 2 hosts for both network and broadcast addresses.  
+Borrowed Bits = /CIDR - /24
+    
+| CIDR | Borrowed Bits | n-Subnets | Block Size | Last Octet | Host Bits | Usable Hosts |
+|------|------------|------------|------------|------------|------------|---------------------------|
+| /24 | /24 - /24 = 0 | 2<sup>0</sup> = 1 | 256 / 1 = 256 | 00000000 | 8 | 2<sup>8</sup>-2 = 254 |
+| /25 | /25 - /24 = 1 | 2<sup>1</sup> = 2 | 256 / 2 = 128 | 10000000 | 7 | 2<sup>7</sup>-2 = 126 |
+| /26 | /26 - /24 = 2 | 2<sup>2</sup> = 4 | 256 / 4 = 64 | 11000000 | 6 | 2<sup>6</sup>-2 = 62 |
+| /27 | /27 - /24 = 3 | 2<sup>3</sup> = 8 | 256 / 8 = 32 | 11100000 | 5 | 2<sup>5</sup>-2 = 30 |
+| /28 | /28 - /24 = 4 | 2<sup>4</sup> = 16 | 256 / 16 = 16 | 11110000 | 4 | 2<sup>4</sup>-2 = 14 |
+| /29 | /29 - /24 = 5 | 2<sup>5</sup> = 32 | 256 / 32 = 8 | 11111000 | 3 | 2<sup>3</sup>-2 = 6 |
+| /30 | /30 - /24 = 6 | 2<sup>6</sup> = 64 | 256 / 64 = 4 | 11111100 | 2 | 2<sup>2</sup>-2 = 2 |
 
 ### Subnetting and Bitmasking
 
