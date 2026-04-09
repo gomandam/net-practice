@@ -84,4 +84,53 @@ Key concepts covered:
 - This project is **interactive training only** — no compilation required
 - Web interface runs locally, no internet connection needed after setup
 - Configuration exports validate CIDR math and routing logic automatically
+  
+---
+  
+## CIDR Prefix Table
 
+A simple illustration of how CIDR prefix changes the number of subnets, block size, subnet mask in binary, and usable hosts.
+
+Usable hosts are calculated with:
+```text
+2^n - 2
+```
+Where `n` is the number of host bits remaining. Reserved 2 hosts for both network and broadcast addresses.
+
+| CIDR | /30-/CIDR | n-Subnets | Block Size | Last Octet | Host Bits | Usable Hosts |
+|------|------|------|------|------|------|------|
+| /24 | 6 | 2<sup>6</sup> = 64 | 256 / 1 = 256 | 00000000 | 8 | 2<sup>8</sup>-2 = 254 |
+| /25 | 5 | 2<sup>5</sup> = 32 | 256 / 2 = 128 | 10000000 | 7 | 2<sup>7</sup>-2 = 126 |
+| /26 | 4 | 2<sup>4</sup> = 16 | 256 / 4 = 64 | 11000000 | 6 | 2<sup>6</sup>-2 = 62 |
+| /27 | 3 | 2<sup>3</sup> = 8 | 256 / 8 = 32 | 11100000 | 5 | 2<sup>5</sup>-2 = 30 |
+| /28 | 2 | 2<sup>2</sup> = 4 | 256 / 16 = 16 | 11110000 | 4 | 2<sup>4</sup>-2 = 14 |
+| /29 | 1 | 2<sup>1</sup> = 2 | 256 / 32 = 8 | 11111000 | 3 | 2<sup>3</sup>-2 = 6 |
+| /30 | 0 | 2<sup>0</sup> = 1 | 256 / 64 = 4 | 11111100 | 2 | 2<sup>2</sup>-2 = 2 |
+
+### Subnetting and Bitmasking
+
+Subnetting works by borrowing bits from the host portion of an IP address.
+
+Example:
+
+- A `/24` leaves 8 host bits
+- A `/25` borrows 1 host bit for subnetting, leaving 7 host bits
+- A `/26` borrows 2 host bits, leaving 6 host bits, and so on  
+
+As more bits are borrowed:
+
+- The number of subnets increases
+- The block size becomes smaller
+- The number of usable hosts decreases
+  
+The binary column shows which bits in the last octet belong to the subnet mask:
+
+```text
+/24 = 00000000
+/25 = 10000000
+/26 = 11000000
+/27 = 11100000
+and so on ..
+```
+
+Each additional `1` means one more borrowed bit. That is why subnetting and bitmasking are directly proportional. As the subnet mask determines how many addresses belong to each subnet and how many hosts can exist inside it.
