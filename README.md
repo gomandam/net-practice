@@ -74,20 +74,7 @@ Key concepts covered:
 | **Broadcast Address** | Last address in subnet; reaches all hosts on network |
 | **CIDR Notation** | `e.g. "/24"` notation indicating number of network bits |
   
-### AI Usage Disclosure
-
-- **README structure & formatting:** AI assisted in formatting sections to meet 42 requirements
-- **Explanation clarity:** use of AI for asking niche questions regarding network concepts
-
----
-
-## Technical Notes
-
-- This project is **interactive training only** — no compilation required
-- Web interface runs locally, no internet connection needed after setup
-- Configuration exports validate CIDR math and routing logic automatically
-  
----
+------
   
 ## CIDR Prefix Table
 
@@ -110,24 +97,20 @@ Borrowed Bits = /CIDR - /24
 | /29 | /29 - /24 = 5 | 2<sup>5</sup> = 32 | 256 / 32 = 8 | 11111000 | 3 | 2<sup>3</sup>-2 = 6 |
 | /30 | /30 - /24 = 6 | 2<sup>6</sup> = 64 | 256 / 64 = 4 | 11111100 | 2 | 2<sup>2</sup>-2 = 2 |
 
-### Subnetting and Bitmasking
+## Subnetting and Bitmasking
 
 Subnetting works by borrowing bits from the host portion of an IP address.
-
 Example:
-
 - A `/24` leaves 8 host bits
 - A `/25` borrows 1 host bit for subnetting, leaving 7 host bits
 - A `/26` borrows 2 host bits, leaving 6 host bits, and so on  
 
 As more bits are borrowed:
-
 - The number of subnets increases
 - The block size becomes smaller
 - The number of usable hosts decreases
   
 The binary column shows which bits in the last octet belong to the subnet mask:
-
 ```text
 /24 = 00000000
 /25 = 10000000
@@ -135,5 +118,21 @@ The binary column shows which bits in the last octet belong to the subnet mask:
 /27 = 11100000
 and so on ..
 ```
-
 Each additional `1` means one more borrowed bit. That is why subnetting and bitmasking are directly proportional. As the subnet mask determines how many addresses belong to each subnet and how many hosts can exist inside it.
+  
+---
+  
+### AI Usage Disclosure
+
+- **README:** AI assisted in formatting sections to meet 42 requirements
+- **Clarity:** Use of AI for asking niche questions regarding network concepts
+
+---
+
+### Technical Notes
+
+- This project is **interactive training only** — no compilation required
+- Web interface runs locally, no internet connection needed after setup
+- Configuration exports validate CIDR math and routing logic automatically
+  
+---
