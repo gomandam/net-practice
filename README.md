@@ -108,7 +108,7 @@ Example:
 As more bits are borrowed:
 - Number of subnets increases
 - Block size becomes smaller
-- The number of usable hosts decreases
+- Number of usable hosts decreases
   
 The binary column shows which bits in the last octet belong to the subnet mask:
 ```text
