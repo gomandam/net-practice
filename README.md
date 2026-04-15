@@ -106,8 +106,8 @@ Example:
 - A `/26` borrows 2 host bits, leaving 6 host bits, and so on  
 
 As more bits are borrowed:
-- The number of subnets increases
-- The block size becomes smaller
+- Number of subnets increases
+- Block size becomes smaller
 - The number of usable hosts decreases
   
 The binary column shows which bits in the last octet belong to the subnet mask:
